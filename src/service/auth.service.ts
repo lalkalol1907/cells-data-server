@@ -1,10 +1,10 @@
 import { Inject, Injectable, OnModuleInit } from '@nestjs/common';
 import { ClientGrpc } from '@nestjs/microservices';
 import { Observable } from 'rxjs';
-import User from '../models/User';
+import UserdataDTO from '../struct/UserdataDTO';
 
 interface AuthServiceProto {
-  GetUser(data: { authToken: string }): Observable<User>;
+  GetUser(data: { authToken: string }): Observable<UserdataDTO>;
 }
 
 @Injectable()
