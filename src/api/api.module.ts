@@ -1,8 +1,8 @@
 import { MiddlewareConsumer, Module } from '@nestjs/common';
 import { ApiController } from './controllers/api.controller';
-import UserdataMiddleware from '../middleware/userdata.middleware';
-import { AuthModule } from '../auth/auth.module';
-import AuthMiddleware from '../middleware/auth.middleware';
+import UserdataMiddleware from '../Middleware/userdata.middleware';
+import { AuthModule } from '../Auth/auth.module';
+import AuthMiddleware from '../Middleware/auth.middleware';
 import { EditController } from './controllers/edit.controller';
 
 @Module({

@@ -1,6 +1,6 @@
 import { Controller, Get } from '@nestjs/common';
-import { UserData } from '../../decorator/userdata.decorator';
-import IUser from '../../struct/IUser';
+import { UserData } from '../../Decorator/userdata.decorator';
+import IUser from '../../Struct/IUser';
 
 @Controller('/api')
 export class ApiController {

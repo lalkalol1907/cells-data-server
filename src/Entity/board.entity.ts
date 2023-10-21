@@ -1,6 +1,6 @@
 import { Column, Entity, OneToMany, PrimaryGeneratedColumn } from 'typeorm';
 import { Cell } from './cell.entity';
-import EnumBoardType from '../struct/EnumBoardType';
+import EnumBoardType from '../Struct/EnumBoardType';
 
 @Entity()
 export class Board {

@@ -1,8 +1,8 @@
 import { HttpStatus, Injectable, NestMiddleware } from '@nestjs/common';
 import { NextFunction, Response } from 'express';
-import IRequestExt from '../struct/IRequestExt';
-import IUser from '../struct/IUser';
-import { AuthService } from '../auth/auth.service';
+import IRequestExt from '../Struct/IRequestExt';
+import IUser from '../Struct/IUser';
+import { AuthService } from '../Auth/auth.service';
 
 @Injectable()
 export default class AuthMiddleware implements NestMiddleware {
