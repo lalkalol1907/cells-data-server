@@ -1,8 +1,8 @@
 import { HttpStatus, Injectable, NestMiddleware } from '@nestjs/common';
 import { NextFunction, Response } from 'express';
-import { AuthService } from '../service/auth.service';
 import IRequestExt from '../struct/IRequestExt';
-import User from '../struct/User';
+import IUser from '../struct/IUser';
+import { AuthService } from '../auth/auth.service';
 
 @Injectable()
 export default class AuthMiddleware implements NestMiddleware {
@@ -19,11 +19,11 @@ export default class AuthMiddleware implements NestMiddleware {
     }
 
     this.authService
-      .checkToken(access_token)
+      .getUser(access_token)
       .toPromise()
       .then((userdata) => {
         if (userdata.authOK && userdata.user) {
-          req.user = JSON.parse(userdata.user) as User;
+          req.user = JSON.parse(userdata.user) as IUser;
           next();
           return;
         }

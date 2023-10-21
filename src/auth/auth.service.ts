@@ -1,10 +1,16 @@
 import { Inject, Injectable, OnModuleInit } from '@nestjs/common';
 import { ClientGrpc } from '@nestjs/microservices';
 import { Observable } from 'rxjs';
-import UserdataDTO from '../struct/UserdataDTO';
+
+interface GetUserResponse {
+  needRefresh: boolean;
+  authOK: boolean;
+  error?: string;
+  user?: string;
+}
 
 interface AuthServiceProto {
-  GetUser(data: { authToken: string }): Observable<UserdataDTO>;
+  GetUser(data: { authToken: string }): Observable<GetUserResponse>;
 }
 
 @Injectable()
@@ -16,9 +22,8 @@ export class AuthService implements OnModuleInit {
     this.authServiceProto = this.client.getService<AuthServiceProto>('Auth');
   }
 
-  checkToken(accessToken: string) {
+  getUser(accessToken: string) {
     const res = this.authServiceProto.GetUser({ authToken: accessToken });
-    console.log(res);
     return res;
   }
 }
